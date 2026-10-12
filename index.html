@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Sweet Memories 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f58bb7;
+    --deep-pink: #d64c87;
+    --light-pink: #fff0f6;
+    --text-pink: #a33d69;
+    --white-pink: #fffafd;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 15%, #ffffffb5 0%, transparent 35%),
+        radial-gradient(ellipse at 90% 80%, #ffc0db85 0%, transparent 35%),
+        linear-gradient(135deg, #ffe5ef, #ffd0e4, #fff0f5);
+    background-attachment: fixed;
+    color: var(--text-pink);
+    overflow-x: hidden;
+}
+
+/* TRANG TRÍ NỀN */
+
+body::before,
+body::after {
+    content: "✿";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    color: #ffffff75;
+    font-size: 180px;
+    animation: slowFloat 8s ease-in-out infinite;
+}
+
+body::before {
+    top: 4%;
+    left: -45px;
+}
+
+body::after {
+    bottom: 0;
+    right: -45px;
+    font-size: 220px;
+    animation-delay: -4s;
+}
+
+@keyframes slowFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+}
+
+.page.active {
+    display: flex;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(45px, 9vw, 75px);
+    color: #d64c87;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 0 #fff, 0 5px 18px #e98fb040;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(34px, 7vw, 54px);
+    margin-bottom: 20px;
+    color: #c44880;
+    text-shadow: 1px 2px 0 #fff;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 12px 0;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: #bb6b90;
+    max-width: 550px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff9bc5, #e85c99);
+    color: white;
+    border: 2px solid #ffffffa8;
+    border-radius: 40px;
+    padding: 15px 32px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 28px;
+    box-shadow: 0 8px 22px #e85c9940, inset 0 1px 3px #ffffff80;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 3;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 28px #e85c9970;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.card {
+    width: min(90vw, 650px);
+    padding: 35px 25px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ffffffdc, #fff4f9e8);
+    border: 2px solid #ffffff;
+    box-shadow: 0 15px 40px #e98fb045, inset 0 0 0 5px #ffe4ef80;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.card::before,
+.card::after {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+}
+
+.card::before {
+    content: "🎀";
+    top: 12px;
+    left: 15px;
+}
+
+.card::after {
+    content: "🌷";
+    bottom: 10px;
+    right: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* TRÁI TIM BAY */
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    z-index: 1;
+    animation: fly linear forwards;
+}
+
+@keyframes fly {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.envelope {
+    font-size: 100px;
+    filter: drop-shadow(0 8px 10px #e98fb050);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.decor {
+    font-size: 32px;
+    margin: 15px;
+}
+
+/* KHUNG VIDEO CHUNG */
+
+.video-box {
+    width: min(90vw, 650px);
+    padding: 12px;
+    background: linear-gradient(145deg, #fff, #fff0f7);
+    border: 2px solid #fff;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px #e98fb050, 0 0 0 5px #ffd6e780;
+    position: relative;
+    isolation: isolate;
+}
+
+.video-box::before {
+    content: "🎀  ✨  💗";
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    white-space: nowrap;
+    z-index: 3;
+    filter: drop-shadow(0 2px 2px #ffffff);
+}
+
+.video-box::after {
+    content: "🌷";
+    position: absolute;
+    bottom: -20px;
+    right: -12px;
+    font-size: 28px;
+    z-index: 3;
+    filter: drop-shadow(0 2px 2px #ffffff);
+}
+
+video {
+    display: block;
+    width: 100%;
+    max-height: 65vh;
+    border-radius: 14px;
+    background: #ffd8e8;
+}
+
+/* VIDEO 1: ÔN KỶ NIỆM - KHUNG DỌC 9:16 */
+
+#page3 .video-box {
+    width: min(82vw, 350px);
+    padding: 10px;
+    margin: 15px 0 8px;
+    border: 3px solid #fff;
+    border-radius: 28px;
+    background: linear-gradient(145deg, #fff9fc, #ffb8d5);
+    box-shadow:
+        0 15px 35px #df5c9840,
+        0 0 0 5px #ffdeec,
+        0 0 0 8px #ffffffa8;
+}
+
+#page3 .video-box::before {
+    content: "🎀 OUR MEMORIES 2019-2026 🎀";
+    top: -31px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #c44880;
+    background: #fff7fb;
+    border: 1px solid #ffd1e4;
+    border-radius: 30px;
+    padding: 6px 14px;
+}
+
+#page3 .video-box::after {
+    content: "💗 🌷";
+    bottom: -24px;
+    right: -15px;
+    font-size: 25px;
+}
+
+#page3 video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #ffe2ef;
+}
+
+/* VIDEO 2: CHÚC MỪNG TỐT NGHIỆP - KHUNG DỌC 9:16 */
+
+#page5 .video-box {
+    width: min(82vw, 350px);
+    padding: 10px;
+    margin: 15px 0 8px;
+    border: 3px solid #fff;
+    border-radius: 28px;
+    background: linear-gradient(145deg, #fff9fc, #ffc4dd);
+    box-shadow:
+        0 15px 35px #df5c9840,
+        0 0 0 5px #ffdeec,
+        0 0 0 8px #ffffffa8;
+}
+
+#page5 .video-box::before {
+    content: "🎓 CONGRATULATIONS 🎀";
+    top: -31px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #c44880;
+    background: #fff7fb;
+    border: 1px solid #ffd1e4;
+    border-radius: 30px;
+    padding: 6px 12px;
+}
+
+#page5 .video-box::after {
+    content: "🎓 💕";
+    bottom: -24px;
+    right: -15px;
+    font-size: 25px;
+}
+
+#page5 video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #ffe2ef;
+}
+
+/* VIDEO 3 GIỮ NGUYÊN KHUNG NGANG */
+
+#page8 .video-box {
+    width: min(90vw, 650px);
+}
+
+#page8 video {
+    width: 100%;
+    max-height: 65vh;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
+/* SÁCH LẬT */
+
+.book {
+    width: min(75vw, 310px);
+    height: 350px;
+    margin: 30px auto;
+    position: relative;
+    perspective: 1200px;
+    cursor: pointer;
+    filter: drop-shadow(8px 12px 15px #b94e7830);
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(135deg, #f58db6, #d9518e);
+    border-radius: 8px 20px 20px 8px;
+    border-left: 12px solid #b93d74;
+    box-shadow: 12px 12px 25px #b94e7850;
+    transform-origin: left;
+    transition: transform 1.2s ease;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    backface-visibility: visible;
+}
+
+.book-cover h2 {
+    color: white;
+    font-size: 42px;
+}
+
+.book-cover span {
+    font-size: 60px;
+}
+
+.book-inside {
+    position: absolute;
+    inset: 0;
+    background: #fffafc;
+    border: 2px solid #f3b0cc;
+    border-radius: 8px 20px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.book.open .book-cover {
+    transform: rotateY(-145deg);
+}
+
+.message {
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 700;
+    color: #c44880;
+    line-height: 1.8;
+}
+
+.funny {
+    font-size: 65px;
+    animation: wiggle 1.3s infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-8deg);
+    }
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+.progress {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #c77b9e;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.sticker {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.8;
+    animation: bounce 3s infinite;
+    filter: drop-shadow(0 3px 3px #ffffff);
+    pointer-events: none;
+}
+
+.s1 {
+    top: 12%;
+    left: 10%;
+}
+
+.s2 {
+    top: 15%;
+    right: 10%;
+}
+
+.s3 {
+    bottom: 12%;
+    left: 12%;
+}
+
+.s4 {
+    bottom: 15%;
+    right: 12%;
+}
+
+/* BỨC THƯ */
+
+.letter-paper {
+    width: min(92vw, 760px);
+    padding: 42px 30px;
+    background:
+        radial-gradient(circle at top right, #ffe8f2 0, transparent 30%),
+        #fffafc;
+    border: 2px solid #f2b8d0;
+    border-radius: 25px;
+    box-shadow: 0 12px 35px #e98fb050, inset 0 0 0 5px #ffe8f080;
+    position: relative;
+}
+
+.letter-paper::before {
+    content: "💌";
+    font-size: 38px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.letter-paper::after {
+    content: "🌷  💗  🎀";
+    display: block;
+    margin-top: 25px;
+    font-size: 23px;
+    opacity: 0.8;
+}
+
+.letter-body {
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 2.15;
+    font-size: 16px;
+    color: #9c466e;
+    overflow-wrap: anywhere;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* TRANG KẾT THÚC */
+
+#page10 .card {
+    overflow: hidden;
+}
+
+#page10 .card > div:first-child {
+    filter: drop-shadow(0 5px 8px #e98fb050);
+    animation: bounce 2s infinite;
+}
+
+@media(max-width: 600px) {
+    .page {
+        padding: 35px 16px;
+    }
+
+    .card {
+        padding: 30px 18px;
+    }
+
+    .sticker {
+        font-size: 23px;
+    }
+
+    .book {
+        height: 300px;
+    }
+
+    .letter-paper {
+        padding: 28px 19px;
+    }
+
+    .letter-body {
+        font-size: 15px;
+    }
+
+    #page3 .video-box,
+    #page5 .video-box {
+        width: min(78vw, 330px);
+    }
+
+    #page3 video,
+    #page5 video {
+        max-height: 55vh;
+    }
+
+    #page3 .video-box::before,
+    #page5 .video-box::before {
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 14px 25px;
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TRANG 1: MỞ ĐẦU -->
+<section class="page active" id="page1">
+    <div class="sticker s1">🎀</div>
+    <div class="sticker s2">🌷</div>
+    <div class="sticker s3">💗</div>
+    <div class="sticker s4">✨</div>
+
+    <div class="envelope">💌</div>
+    <h1>A Little Surprise For You</h1>
+
+    <div class="card">
+        <p class="subtitle">Có một món quà nhỏ xíu đang đợi nè...</p>
+        <p> 🫣💕</p>
+        <button class="btn" onclick="showPage(2)">Ấn vô đey cho tui 🎀</button>
+    </div>
+</section>
+
+<!-- TRANG 2: ÔN LẠI KỶ NIỆM -->
+<section class="page" id="page2">
+    <div class="progress">CHAPTER 01 ✦</div>
+
+    <div class="card">
+        <div class="decor">🌸 ✨ 🌸</div>
+        <h1>Ôn Lại xíu ha</h1>
+        <p class="subtitle">Một chút kỷ niệm của chúng ta...</p>
+        <p>Ảnh ít quá, ráng ráng chụp thêm 10000*100000 tấm nữa nka 💗</p>
+        <button class="btn" onclick="startVideo(1,3)">Chuẩn bị giấy dần ii nhó 🎬</button>
+    </div>
+</section>
+
+<!-- TRANG 3: VIDEO 1 - ÔN LẠI KỶ NIỆM -->
+<section class="page" id="page3">
+    <div class="progress">OUR MEMORIES ✦ 01</div>
+    <h2>hehe 💕</h2>
+
+    <div class="video-box">
+        <video id="video1" controls playsinline preload="metadata"></video>
+    </div>
+
+    <p class="subtitle">Xem hết mới được xem tiếp  🫣</p>
+    <button id="next1" class="btn hidden" onclick="showPage(4)">Ấn đey 💌</button>
+</section>
+
+<!-- TRANG 4: SÁCH LẬT -->
+<section class="page" id="page4">
+    <div class="progress">CHAPTER 02 ✦</div>
+    <h1>Boommm 🎓</h1>
+    <p class="subtitle">Một hành trình khép lại, một hành trình mới bắt đầu...</p>
+    <p>Chúc mừng tân cử nhân của tuiii 💗</p>
+
+    <div class="book" id="memoryBook" onclick="openBook()">
+        <div class="book-inside">
+            <h2>Congratulations!</h2>
+            <span style="font-size:65px">🎓</span>
+            <p>You did it, graduate! ♡</p>
+        </div>
+
+        <div class="book-cover">
+            <span>📖</span>
+            <h2></h2>
+            <p> Happy happy  ♡</p>
+            <p style="font-size:13px">Ấn típ</p>
+        </div>
+    </div>
+</section>
+
+<!-- TRANG 5: VIDEO 2 - CHÚC MỪNG TỐT NGHIỆP -->
+<section class="page" id="page5">
+    <div class="progress">CONGRATULATIONS ✦ 02</div>
+    <h2>Chúc mừng gái iu tốt nghiệp 🎓💗</h2>
+
+    <div class="video-box">
+        <video id="video2" controls playsinline preload="metadata"></video>
+    </div>
+
+    <p class="subtitle"> tiếp nè 🤭</p>
+    <button id="next2" class="btn hidden" onclick="showPage(6)">Ấn đey 💌</button>
+</section>
+
+<!-- TRANG 6: TRÊU MỘT CHÚT -->
+<section class="page" id="page6">
+    <div class="card">
+        <div class="funny">🤣🫵</div>
+        <h2>Éeee....</h2>
+        <p class="message">Chắc ai đó đang rưng rưng gùi nì hehe</p>
+        <p style="font-size:24px">🤣🤣🤣</p>
+        <button class="btn" onclick="showPage(7)">Ấn tiếp thoi 🎀</button>
+    </div>
+</section>
+
+<!-- TRANG 7: GIỚI THIỆU VIDEO 3 -->
+<section class="page" id="page7">
+    <div class="progress">FINAL CHAPTER ✦</div>
+
+    <div class="card">
+        <div class="decor">🎥 💌 🎀</div>
+        <h1>One Last Thing...</h1>
+        <p class="subtitle">Có vài lời muốn gửi đến nhỏ... 🥹</p>
+        <button class="btn" onclick="startVideo(3,8)">💗</button>
+    </div>
+</section>
+
+<!-- TRANG 8: VIDEO 3 - VOICE CHÚC -->
+<section class="page" id="page8">
+    <div class="progress"></div>
+    <h2>Lời chúc dành cho gái 💗</h2>
+
+    <div class="video-box">
+        <video id="video3" controls playsinline preload="metadata"></video>
+    </div>
+
+    <p class="subtitle">💌</p>
+    <button id="next3" class="btn hidden" onclick="showPage(9)">Ấn đey 💌</button>
+</section>
+
+<!-- TRANG 9: BỨC THƯ CUỐI -->
+<section class="page" id="page9">
+    <div class="progress">Secret hehe ✦</div>
+
+    <div class="letter-paper">
+        <h1>To My Bestfriend ♡</h1>
+        <div class="decor">🎀 🌷 💗</div>
+
+        <div class="letter-body" id="letterText"></div>
+
+        <div id="signature" class="signature hidden">
+            With all my love,<br>
+            Pingpoong 💗
+        </div>
+
+        <button id="endingBtn" class="btn hidden" onclick="showPage(10)">Một điều cuối cùng... 💕</button>
+    </div>
+</section>
+
+<!-- TRANG 10: KẾT THÚC -->
+<section class="page" id="page10">
+    <div class="card">
+        <div style="font-size:75px">🎓💗</div>
+        <h1>Congratulations, Graduate!</h1>
+
+        <p class="subtitle">
+            Cảm ơn vì đã xuất hiện trong những kỷ niệm thật đẹp của Pingpoong.
+            Chúc cho chặng đường mới của gái sẽ luôn rực rỡ!
+        </p>
+
+        <p id="endingText" style="font-family:'Dancing Script',cursive;font-size:38px;margin-top:25px">
+            Your next chapter starts here ♡
+        </p>
+
+        <p>🎀 🌷 💕 ✨</p>
+        <button class="btn" onclick="restart()"> 💌</button>
+    </div>
+</section>
+
+<script>
+
+// ==========================================
+// THAY VIDEO Ở ĐÂY
+// Đặt 3 video cùng thư mục với file index.html.
+// Đổi tên video thành video1.mp4, video2.mp4, video3.mp4
+// Hoặc sửa tên bên dưới cho trùng chính xác với tên file của bạn.
+// ==========================================
+
+// CẦN LINK VIDEO 1 - ÔN LẠI KỶ NIỆM
+const VIDEO_1 = "videos/video1.mp4";
+
+// CẦN LINK VIDEO 2 - CHÚC MỪNG TỐT NGHIỆP
+const VIDEO_2 = "videos/video2 (1).mp4";
+
+// CẦN LINK VIDEO 3 - VOICE CHÚC
+const VIDEO_3 = "videos/video3.mp3";
+
+// ==========================================
+// LỜI NHẮN CUỐI - CÓ THỂ SỬA NỘI DUNG TẠI ĐÂY
+// ==========================================
+
+const letterMessage = `Eii run quá khom nói dc nhiều 🥹💗
+
+Chúc mừng gái yêu đã hoàn thành hành trình 4 năm đại học nhaaa 🎓💕
+Dù khom đồng hành cùng nhỏ trong ngôi trường này hết 4 năm dc, nhưng cảm ơn gái rất nhiều vì đã là một phần trong thanh xuân chán ngắt cụa tui.
+Cảm ơn ẻm đã quan tâm, chăm toi, đã chiều toii, đã giúp toi rất là nhiều.
+Chúc gái iu cụa Pingpoong sẽ hoàn thành tốt mục tiêu của ẻm, và dù sau này có đi đến đâu cũng luôn tự tin với lựa chọn của mình.
+Dù không ở gần nhưng xin nhớ một điều là Pingpoong sẽ luôn đồng hành cùng gái, ủng hộ gái hết mình ạ.
+Có chuyện gì nhớ nhắn tin, gọi điện cho anh liền.
+ĐỪNG CÓ SỢ PHIỀN TÔI Ạ!!! 😤💗 Với gái toii không bao giờ thấy phiền hay mệt gì cả.
+Mong chặng đường mới của nhỏ sẽ có thật nhiều niềm vui, gặp được những người tốt và luôn làm được điều mình mong muốn.
+Miss và iu nhiều nhỏ iu cụa Pingpoong. 🥹💕
+Mong chúng ta sẽ mãi được như nè, cùng cố gắng để có nhiều chuyến đi, nhiều kỉ niệm và thật nhiều ảnh hơn nữa nka gái iuuuuuuu 💗`;
+
+// ==========================================
+// CÀI ĐẶT VIDEO
+// ==========================================
+
+const videos = [
+    document.getElementById("video1"),
+    document.getElementById("video2"),
+    document.getElementById("video3")
+];
+
+const videoLinks = [VIDEO_1, VIDEO_2, VIDEO_3];
+
+videos.forEach((video, index) => {
+    video.src = videoLinks[index];
+    video.load();
+});
+
+let typingTimer = null;
+let bookOpened = false;
+
+// ==========================================
+// CHUYỂN TRANG
+// ==========================================
+
+function showPage(number) {
+    videos.forEach(video => video.pause());
+    clearInterval(typingTimer);
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number).classList.add("active");
+    window.scrollTo(0, 0);
+
+    if (number === 9) {
+        startLetter();
+    }
+}
+
+// ==========================================
+// PHÁT VIDEO
+// ==========================================
+
+function startVideo(videoNumber, pageNumber) {
+    showPage(pageNumber);
+
+    const video = videos[videoNumber - 1];
+
+    video.play().catch(() => {
+        // Nếu video không tự phát, nhấn nút Play trên video.
+    });
+}
+
+// ==========================================
+// KHI VIDEO KẾT THÚC MỚI HIỆN NÚT TIẾP
+// ==========================================
+
+videos.forEach((video, index) => {
+    video.addEventListener("ended", () => {
+        const nextButton = document.getElementById("next" + (index + 1));
+
+        if (nextButton) {
+            nextButton.classList.remove("hidden");
+        }
+
+        createConfetti();
+    });
+});
+
+// ==========================================
+// HIỆU ỨNG LẬT SÁCH
+// ==========================================
+
+function openBook() {
+    if (bookOpened) return;
+
+    bookOpened = true;
+    document.getElementById("memoryBook").classList.add("open");
+    createConfetti();
+
+    setTimeout(() => {
+        startVideo(2, 5);
+    }, 1500);
+}
+
+// ==========================================
+// HIỆU ỨNG VIẾT THƯ TỪ TỪ
+// ==========================================
+
+function startLetter() {
+    const box = document.getElementById("letterText");
+    const signature = document.getElementById("signature");
+    const endingBtn = document.getElementById("endingBtn");
+
+    box.textContent = "";
+    signature.classList.add("hidden");
+    endingBtn.classList.add("hidden");
+
+    const characters = Array.from(letterMessage);
+    let index = 0;
+
+    typingTimer = setInterval(() => {
+        if (index < characters.length) {
+            box.textContent += characters[index];
+            index++;
+        } else {
+            clearInterval(typingTimer);
+            signature.classList.remove("hidden");
+            endingBtn.classList.remove("hidden");
+            createConfetti();
+        }
+    }, 24);
+}
+
+// ==========================================
+// TRÁI TIM BAY
+// ==========================================
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    const symbols = ["💗", "💕", "💖", "🌸", "🎀", "✨"];
+
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 600);
+
+// ==========================================
+// MƯA TIM
+// ==========================================
+
+function createConfetti() {
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createHeart, i * 70);
+    }
+}
+
+// ==========================================
+// XEM LẠI TỪ ĐẦU
+// ==========================================
+
+function restart() {
+    clearInterval(typingTimer);
+
+    videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+    });
+
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById("next" + i).classList.add("hidden");
+    }
+
+    document.getElementById("memoryBook").classList.remove("open");
+    bookOpened = false;
+
+    showPage(1);
+}
+
+</script>
+
+</body>
+</html>
